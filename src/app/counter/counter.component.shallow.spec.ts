@@ -18,14 +18,12 @@ describe('CounterComponent (shallow test)', () => {
   let component: CounterComponent;
   let fixture: ComponentFixture<CounterComponent>;
   
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [CounterComponent],
       schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
-  }));
-
-  beforeEach(() => {
+    
     fixture = TestBed.createComponent(CounterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

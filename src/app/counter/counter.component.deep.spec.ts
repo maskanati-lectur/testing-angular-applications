@@ -15,15 +15,13 @@ describe('CounterComponent (deep integrated test)', () => {
   let component: CounterComponent;
   let fixture: ComponentFixture<CounterComponent>;
   let router: Router;
-  
-  beforeEach(async(() => {
+
+  beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [CounterComponent, MoonComponent],
       imports: [RouterTestingModule]
-    }).compileComponents(); // This is not needed if you are in the CLI context
-  }));
+    }).compileComponents();
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(CounterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -32,6 +30,7 @@ describe('CounterComponent (deep integrated test)', () => {
   it('should instantiate', () => {
     expect(component).toBeDefined();
   });
+
   it('should increment the moon number if increment button is clicked (+1)', () => {
     component.counter = 5; // Fake some increment clicks before.
     const button = fixture.debugElement.nativeElement.querySelector('.button-up');
