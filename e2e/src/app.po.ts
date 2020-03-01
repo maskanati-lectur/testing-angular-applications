@@ -1,11 +1,18 @@
 import { browser, by, element } from 'protractor';
+import { BasePage } from './base-page.po';
 
-export class AppPage {
-  navigateTo() {
-    return browser.get(browser.baseUrl) as Promise<any>;
+export class AppPage extends BasePage {
+  getRelativeUrl(): string {
+    return "/";
   }
 
-  getTitleText() {
-    return element(by.css('app-root .content span')).getText() as Promise<string>;
+  clickOnIncrementButton(count: number) { 
+    for (let i = 0; i < count; i++) {
+      element(by.css('.button-up')).click();
+    }
+  }
+
+  getCounrLabel()  {
+    return element(by.css('.count-label')).getText() as Promise<string>;
   }
 }

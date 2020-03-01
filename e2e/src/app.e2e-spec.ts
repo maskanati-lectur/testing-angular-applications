@@ -1,23 +1,20 @@
 import { AppPage } from './app.po';
-import { browser, logging } from 'protractor';
 
-describe('workspace-project App', () => {
+describe('counter in main page (end to end)', () => {
   let page: AppPage;
 
   beforeEach(() => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should set Counter label based on number of clicks on increment button', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('testing-angular-applications app is running!');
-  });
 
-  afterEach(async () => {
-    // Assert that there are no errors emitted from the browser
-    const logs = await browser.manage().logs().get(logging.Type.BROWSER);
-    expect(logs).not.toContain(jasmine.objectContaining({
-      level: logging.Level.SEVERE,
-    } as logging.Entry));
-  });
+    page.clickOnIncrementButton(2);
+
+    const itemCount = page.getCounrLabel();
+    expect(itemCount).toBe('2');
+  })
 });
+
+
