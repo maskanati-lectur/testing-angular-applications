@@ -1,0 +1,5 @@
+<span
+      *ngFor="let moon of moonArray; let i = index">
+      <ng-container *ngIf="moon; else noStar">🌕</ng-container>
+      <ng-template #noStar>🌑</ng-template>
+    </span>
